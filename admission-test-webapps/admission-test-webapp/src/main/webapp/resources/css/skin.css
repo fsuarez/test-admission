@@ -1,0 +1,558 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+/* ******************************************
+        ESTILO GENERAL
+****************************************** */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #333;
+    padding: 10px;
+}
+
+h2{
+    font-size: 16px;
+    margin-left: -15px;
+}
+
+h3{
+    font-size: 16px;
+    color: #666;
+    margin: 15px 0px;
+}
+
+a{
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: underline;
+    color: #0000FF !important;
+}
+
+a:hover{
+    color: #0000FF;
+}
+
+a.inactive{
+    color: #999999;
+}
+
+.breadcrumbs{
+    font-size: 10px !important;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.breadcrumbs li:first-of-type{
+    display: none;
+}
+
+.breadcrumbs li:after{
+    width: 1em;
+    margin-left: .5em;
+    content: ' >';
+    display: inline-block;
+    margin-top: .3em;
+}
+
+.breadcrumbs li a{
+    font-size: 10px;
+}
+
+.breadcrumbs li:last-of-type a{
+    color: #333 !important;
+    text-decoration: none;
+    font-weight: bold;
+    pointer-events: none;
+    cursor: default;
+}
+
+.breadcrumbs li:last-of-type:after{
+    content:'';
+}
+
+.breadcrumbs li.ui-breadcrumb-chevron:first-of-type{
+    display: none;
+}
+
+.breadcrumbs li.ui-breadcrumb-chevron{
+    display: none;
+}
+
+.ui-state-default{
+    box-shadow: none !important;
+}
+
+.ui-widget{
+    font-size: inherit;
+}
+
+.ui-widget-content{
+    background: transparent;
+    border: 0px solid #fff;
+}
+
+.content-wrapper{
+    //width: 810px;
+    width: 1170px;
+    border: 1px solid #cdcdcd;
+    padding: 15px 30px;
+    box-sizing: border-box;
+}
+
+
+ul.dash {
+    list-style:none;
+    margin-left:0;
+    padding-left:1em;
+}
+
+ul.dash li:before {
+    display:inline-block;
+    content:"-";
+    width:1em;
+    margin-left:-1em;
+}
+
+.ui-corner-all{
+    border-radius: 0px !important;
+}
+
+.ui-radiobutton .ui-radiobutton-box {
+    vertical-align: bottom;
+    display: inline-block;
+    border-radius: 10px !important;
+    width: 13px;
+    height: 13px;
+    margin-bottom: -2px;
+}
+
+.ui-radiobutton-icon {
+    margin-left: -1px;
+    margin-top: -1px;
+}
+
+.ui-radiobutton{
+    vertical-align: middle;
+}
+
+.ui-radiobutton + label {
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.ui-selectoneradio{
+    width:100%;
+}
+
+.ui-fieldset-legend{
+    font-size: 14px;
+    border: none !important;
+    border-radius: 0px !important;
+    background: transparent !important;
+    padding-left: 5px !important;
+    padding-right: 25px !important;
+}
+
+.ui-datatable-even{
+    background: #f2f2f2;
+}
+
+.ui-datatable-odd{
+    background: #d7d7d7;
+}
+
+fieldset.ui-widget-content{
+    border: 1px solid #cdcdcd;
+}
+
+.ui-datatable table{
+    width: auto !important;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+
+.ui-datatable th, .ui-datatable tr, .ui-datatable td{
+    border: 0px solid #fff;
+}
+
+.ui-fieldset .ui-datatable th{
+    background: #666;
+    color: #fff;
+    text-shadow: none;
+    font-weight: normal;
+    border: none;
+    border-left: 1px solid;
+}
+
+.ui-datatable td{
+    text-align: center;
+    padding: 3px !important;
+}
+
+/* ******************************************
+        ESTILOS ESPECIFICOS
+****************************************** */
+
+
+
+.cardsTable a{
+    font-size: 11px;
+}
+
+.top{
+    //width: 810px;
+    width: 1170px;
+}
+
+/* MENU PRINCIPAL */
+
+.topMenu{
+    //width: 810px;
+    width: 1170px;
+}
+
+.topMenu ul{
+    background: none !important;
+    padding: 0 !important;
+}
+
+.topMenu ul li{
+    background: white !important;
+    //width: 180px;
+    width: 220px;
+    height: 32px;
+    box-sizing: border-box;
+    border: 1px solid #cdcdcd !important;
+    border-radius: 0px;
+    margin-right: 5px;
+    padding: 6px 0 !important;
+    text-align: center !important;
+    top: 2px !important;
+}
+
+.topMenu ul li:hover{
+    box-shadow: none !important;
+}
+
+.topMenu ul li.ui-state-active{
+    border-bottom: 0 !important;
+}
+
+.topMenu ul li a, .topMenu ul li a:hover, .topMenu ul li a:visited{
+    float: none !important;
+    padding: 0 !important;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: underline !important;
+    color: #0000FF;
+}
+
+.topMenu ul li.ui-state-active a{
+    font-weight: bold;
+    text-decoration: none !important;
+    color: #000000 !important;
+}
+
+
+/* SELECCION DE CUENTA DE AHORRO */
+
+.chooseAccount{
+    margin: 10px 0px;
+}
+
+.chooseAccount .ui-datatable th{
+    width: 150px;
+}
+
+.chooseAccount .ui-fieldset-content{
+    margin-top: -20px;	
+}
+
+.chooseAccount .ui-datatable th:first-of-type{
+    width: 200px;
+}
+
+.chooseAccount .ui-datatable td:first-of-type{
+    text-align: left;
+}
+
+.chooseAccount .ui-datatable td div.ui-dt-c{
+    padding: 5px 2px;
+}
+
+/* Cuadratura */
+
+.quadrature {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+.quadrature table {
+	margin: 0 auto;
+}
+
+.quadrature .ui-datatable th {
+	width: 150px;
+}
+
+.quadrature .ui-fieldset-content {
+	margin-top: -20px;
+	text-align: center;
+}
+
+.quadrature .ui-datatable th:first-of-type {
+	width: 200px;
+}
+
+.quadrature .ui-datatable td:first-of-type {
+	text-align: left;
+}
+
+.quadrature .ui-datatable td div.ui-dt-c {
+	padding: 5px 2px;
+}
+
+/* DETALLES DE CUENTA DE AHORRO */
+.savedAmount table{
+    margin-left: 35px;
+}
+
+.savedAmount table tr td:first-of-type{
+    text-align: right;
+}
+
+.savedAmount table tr:first-of-type td:first-of-type{
+    font-weight: bold;
+}
+
+.savedAmount table a{
+    font-size: 12px;
+}
+
+.savedAmount table a:before{
+    display:inline-block;
+    content: "";
+    background: url('../images/icon_details.png')no-repeat;
+    width: 18px;
+    height: 16px;
+    margin-left: -16px;
+    margin-bottom: -4px;
+}
+
+.cardsTable table a.actionLink{
+    border: 1px solid #4f4f4f;
+    background: white;
+    padding: 3px 10px;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    color: #000000 !important;
+    border-radius: 5px;
+    display: inherit;
+}
+
+
+.savingWrapper{
+    width: 535px !important;
+    font-size: 12px;
+}
+
+.ui-dialog-titlebar{
+    display: none;
+}
+
+.savingWrapper h2{
+    margin-left: 0px;
+}
+
+.savingWrapper .ui-fieldset-legend {
+    font-size: 12px;
+}
+
+.savingWrapper .ui-fieldset-content{
+    margin-left: 10px;
+}
+
+.savingWrapper select{
+    width: 205px;
+    margin: 5px 0px;
+    margin-right: 50px;
+}
+
+.savingWrapper table td{
+    vertical-align: text-top;
+}
+
+.savingWrapper .greenMessage{
+    font-size: 10px;
+    font-style: italic;
+    color: #669900;
+    margin-left: 20px;
+}
+
+.savingWrapper input[type="checkbox"]{
+    margin-top:5px;
+}
+
+.savingWrapper input[type="text"]{
+    width: 90px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.savingWrapper .contactData{
+    margin-bottom: 5px;
+}
+
+.savingWrapper .contactData input[type="text"]{
+    width: 100%;
+}
+
+.savingWrapper .contactData table{
+    width: 100%;
+    margin-top: 5px;
+}
+
+.savingWrapper .contactData table tr td:first-of-type{
+    text-align: right;
+}
+
+.savingWrapper .contactData table tr:last-of-type td{
+    text-align: left;
+    font-size: 11px;
+}
+
+.savingWrapper .acceptTerms{
+    font-size: 11px;
+}
+
+.buttonActions{
+    width: 100%;
+    text-align: center;
+}
+
+.buttonActions button{
+    margin-left: 10px;
+    background: white !important;
+    border: 1px solid #444 !important;
+    border-radius: 5px !important;
+    padding: 0px 5px;
+}
+
+.buttonActions button.ui-state-disabled{
+    background: #ddd !important;
+    border: 1px solid #444 !important;
+}
+
+h3.monthDetail{
+    font-size: 14px;
+}
+
+.monthDetail legend{
+    font-size: 12px;
+}
+
+.monthDetail table a{
+    font-size: 11px;
+}
+
+.dialogRules{
+    width: 526px !important;
+}
+
+.dialogRules h2{
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.dialogRules fieldset legend{
+    font-size: 13px;
+}
+
+.dialogRules fieldset table{
+    width: 430px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.dialogRules fieldset table tr:first-of-type td, .dialogRules fieldset table tr:last-of-type td{
+    background: #f2f2f2;
+}
+
+.dialogRules fieldset table td{
+    border: 1px solid #444;
+    padding: 2px;
+    font-size: 12px;
+}
+
+.dialogRules fieldset table td:first-of-type{
+    font-weight: bold;
+    text-align: right;
+}
+
+.dialogRules .buttonActions{
+    margin-top: 20px;
+}
+
+
+.dialogDetailMovement fieldset legend{
+    font-size: 13px;
+}
+
+.dialogDetailMovement fieldset table{
+    width: 430px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.dialogDetailMovement fieldset table tr:first-of-type td{
+    background: #f2f2f2;
+}
+
+.dialogDetailMovement fieldset table td{
+    border: 1px solid #444;
+    padding: 2px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.dialogDetailMovement fieldset table td:first-of-type{
+    font-weight: bold;
+    text-align: center;
+}
+
+.dialogDetailMovement .buttonActions{
+    margin-top: 20px;
+}
+
+.ui-datepicker {
+    border: 1px solid #666666;
+}
+
+#datos_emisor tr td {
+    text-align : left;
+}
+
+#emisor_combo_label {
+    padding-bottom: 5px;
+}
+

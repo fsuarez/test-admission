@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cl.experti</groupId>
+		<artifactId>admission-test</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<artifactId>admission-test-webapps</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>admission-test-ws-webapp</module>
+		<module>admission-test-webapp</module>
+	</modules>
+	
+	<properties>
+		<tomcat.url>http://localhost:8080/manager/text</tomcat.url>
+		<tomcat.user>manager</tomcat.user>
+		<tomcat.password>manager</tomcat.password>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commonslang3.version}</version>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+
+		<repository>
+			<id>jboss-repo</id>
+			<name>JBoss Releases Maven Repository</name>
+			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+</project>
