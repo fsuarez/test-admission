@@ -21,7 +21,7 @@
                         <br/>  
                     </p:panel>
                     <div align="center"> 
-                            <p:commandButton ajax="false" value="Cerrar sesión" action="${loginBean.doLogout()}" />
+                            <a id="logoutLink" href="#{request.contextPath}/j_spring_security_logout">Cerrar sesión</a>
                             <br/>
                             <p:outputPanel id="panelMensajes" >
                                 <p:messages id="mensajes" showDetail="false" autoUpdate="true"/>
