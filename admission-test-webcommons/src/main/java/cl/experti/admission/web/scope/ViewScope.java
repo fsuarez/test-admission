@@ -1,4 +1,4 @@
-package cl.experti.admission.webapp.scope;
+package cl.experti.admission.web.scope;
 
 import java.util.Map;
 

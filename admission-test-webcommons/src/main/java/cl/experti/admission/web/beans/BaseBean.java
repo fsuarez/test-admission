@@ -1,27 +1,17 @@
-package cl.experti.admission.webapp.beans;
+package cl.experti.admission.web.beans;
 
-import java.util.Arrays;
 import java.util.Map;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpSession;
-
-import org.primefaces.context.RequestContext;
-import org.springframework.security.core.context.SecurityContextHolder;
-
-import cl.experti.admission.webapp.security.AdmissionUser;
 
 @SuppressWarnings("serial")
 public class BaseBean implements java.io.Serializable {
-
-    protected AdmissionUser getUsuarioSesion() {
-        AdmissionUser user = (AdmissionUser) getPrincipal();
-        return user;
-    }
-
     protected String getRequestParameter(String name) {
         Map<String, String> requestParameterMap = getExternalContext().getRequestParameterMap();
         return requestParameterMap.get(name);
@@ -31,11 +21,6 @@ public class BaseBean implements java.io.Serializable {
     protected <T> T getSessionParameter(String name) {
         HttpSession httpSession = getHttpSession();
         return (T) httpSession.getAttribute(name);
-    }
-
-    protected Object getPrincipal() {
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return principal;
     }
     
     @SuppressWarnings("unchecked")
@@ -52,10 +37,6 @@ public class BaseBean implements java.io.Serializable {
         return getFacesContext().getExternalContext();
     }
 
-    protected RequestContext getRequestContext() {
-        return RequestContext.getCurrentInstance();
-    }
-
     protected FacesContext getFacesContext() {
         return FacesContext.getCurrentInstance();
     }
@@ -68,14 +49,19 @@ public class BaseBean implements java.io.Serializable {
         getFacesContext().addMessage(messageFor, new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
     }
 
-    protected void executeViewScriptsAndUpdate(String[] toExecute, String[] toUpdate) {
-        for (String script : toExecute) {
-            getRequestContext().execute(script);
-        }
-        getRequestContext().update(Arrays.asList(toUpdate));
-    }
-
     protected HttpSession getHttpSession() {
         return (HttpSession) getFacesContext().getExternalContext().getSession(true);
+    }
+    
+    @SuppressWarnings("unchecked")
+    protected <T extends ServletRequest> T getRequest() {
+	ExternalContext context = getExternalContext();
+	return (T) context.getRequest();
+    }
+    
+    @SuppressWarnings("unchecked")
+    protected <T extends ServletResponse> T getResponse() {
+	ExternalContext context = getExternalContext();
+	return (T) context.getResponse();
     }
 }

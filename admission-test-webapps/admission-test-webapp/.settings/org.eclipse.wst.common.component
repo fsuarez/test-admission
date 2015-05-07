@@ -7,6 +7,9 @@
         <dependent-module archiveName="admission-test-login-wsclient-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/admission-test-login-wsclient/admission-test-login-wsclient">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="admission-test-webcommons-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/admission-test-webcommons/admission-test-webcommons">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/admission-test-webapp/target/classes"/>
         <property name="context-root" value="admission"/>
     </wb-module>

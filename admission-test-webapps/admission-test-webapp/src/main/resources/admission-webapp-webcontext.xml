@@ -17,20 +17,20 @@
         <property name="systemPropertiesMode" value="2" />
         <property name="locations">
             <list>
-                <value>classpath:ahorro-usuariotbk.properties</value>
-                <value>file:${user.home}${file.separator}.ahorro${file.separator}ahorro.properties</value>
+                <value>classpath:admission-webapp.properties</value>
+                <value>file:${user.home}${file.separator}.experti${file.separator}admission.properties</value>
             </list>
         </property>
     </bean>
     
     <context:annotation-config />
-    <context:component-scan base-package="cl.experti.admission.webapp*" />
+    <context:component-scan base-package="cl.experti.admission.webapp.*" />
     
     <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
         <property name="scopes">
             <map>
                 <entry key="view">
-                    <bean class="cl.experti.admission.webapp.scope.ViewScope" />
+                    <bean class="cl.experti.admission.web.scope.ViewScope" />
                 </entry>
             </map>
         </property>

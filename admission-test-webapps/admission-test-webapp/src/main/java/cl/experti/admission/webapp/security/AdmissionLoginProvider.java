@@ -14,7 +14,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -55,7 +54,7 @@ public class AdmissionLoginProvider extends AbstractUserDetailsAuthenticationPro
 	    
 	    if (authenticated) {
 	        List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-		grantedAuthorities.add(new SimpleGrantedAuthority("AdmissionWebapp"));
+		grantedAuthorities.add(new AdmissionAuthority("AdmissionWebapp"));
 	        return new AdmissionUser(username, password, true, true, true, true, grantedAuthorities);
 	    } else {
 	        throw new BadCredentialsException("No coincide par usuario/password");
