@@ -9,23 +9,5 @@
             org.springframework.web.jsf.el.SpringBeanFacesELResolver
         </el-resolver>
     </application>
-
-	<navigation-rule>
-		<from-view-id>*</from-view-id>
-		<navigation-case>
-			<from-outcome>loginDone</from-outcome>
-			<to-view-id>/pages/inicio.jsf</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<from-view-id>*</from-view-id>
-		<navigation-case>
-			<from-outcome>logoutDone</from-outcome>
-			<to-view-id>/login.jsf</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-	</navigation-rule>
     
 </faces-config>

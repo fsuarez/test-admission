@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14309234462930" configfile="/admission-test-webapp/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="pages/inicio.jsf" x="338" y="178" id="pf14309234697324" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14309234966285" path="/pages/inicio.jsf"/>
-  <nodes xsi:type="pageflow:PFPage" name="login.jsf" id="pf14309234966286" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf14309234966285" inlinks="pf14309235115347" path="*"/>
-  <nodes xsi:type="pageflow:PFPage" name="*" id="pf14309235115348" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14309235115347" path="*"/>
-  <links id="pf14309234966285" target="pf14309234697324" source="pf14309234966286" outcome="loginDone" redirect="true"/>
-  <links id="pf14309235115347" target="pf14309234966286" source="pf14309235115348" outcome="logoutDone" redirect="true"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="754" id="pf14309235115348" referenceLink="//@navigationRule.1/@fromViewId|" path="*"/>
 </pageflow:Pageflow>
