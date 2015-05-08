@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.xml.ws.soap.SOAPFaultException;
 
@@ -34,6 +35,11 @@ public class AdmissionLoginProvider extends AbstractUserDetailsAuthenticationPro
     
     static {
 	logger = LoggerFactory.getLogger(AdmissionLoginProvider.class);
+    }
+    
+    @PostConstruct
+    public void init() {
+	setHideUserNotFoundExceptions(false);
     }
 
     @Override
