@@ -9,6 +9,9 @@
         	<title>Experti - Prueba de Admision</title>
         </h:head>
         <h:body>
+        	<f:metadata>
+                <f:event type="preRenderView" listener="#{loginBean.checkLoginErrors}" />
+            </f:metadata>
             <div align="center"> 
                 <h:form id="form_login" prependId="false">
                     <p:panel header="Experti, Prueba de admision" style="width:430px;">
@@ -33,7 +36,7 @@
                             <p:commandButton ajax="false" value="Iniciar Sesión" action="${loginBean.doLogin()}" />
                             <br/>
                             <p:outputPanel id="panelMensajes" >
-                                <p:messages id="mensajes" showDetail="false" autoUpdate="true"/>
+                                <p:messages id="mensajes" showDetail="false" autoUpdate="true" closable="true"/>
                             </p:outputPanel>
                         </div>
                     </p:panel>

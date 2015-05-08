@@ -1,13 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>cl.experti</groupId>
-    <artifactId>admission-test-ws-stubs</artifactId>
-    <version>0.0.1</version>
-  </parent>
-  <artifactId>admission-tests-wsservers</artifactId>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>admission-test-login-wsserver</module>
-  </modules>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cl.experti</groupId>
+		<artifactId>admission-test-ws-stubs</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<artifactId>admission-tests-wsservers</artifactId>
+	<packaging>pom</packaging>
+	<modules>
+		<module>admission-test-login-wsserver</module>
+	</modules>
 </project>
