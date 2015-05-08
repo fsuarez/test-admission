@@ -2,6 +2,7 @@ package cl.experti.admission.webapp.security;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -10,14 +11,17 @@ import javax.xml.ws.soap.SOAPFaultException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import cl.experti.admission.ws.login.LoginRequest;
+import cl.experti.admission.ws.login.LoginResponse;
 import cl.experti.admission.ws.login.LoginService;
 import cl.experti.admission.ws.login.UserLogin;
 import cl.experti.admission.ws.login.UserLoginResponse;
@@ -53,15 +57,42 @@ public class AdmissionLoginProvider extends AbstractUserDetailsAuthenticationPro
 	    boolean authenticated = BigDecimal.ZERO.equals(loginResponseCode);
 	    
 	    if (authenticated) {
-	        List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-		grantedAuthorities.add(new AdmissionAuthority("AdmissionWebapp"));
-	        return new AdmissionUser(username, password, true, true, true, true, grantedAuthorities);
+	        return new AdmissionUser(username, password, true, true, true, true, mapRoles(loginResponse.getLoginResponse()));
 	    } else {
-	        throw new BadCredentialsException("No coincide par usuario/password");
+	        AuthenticationException authEx = mapLoginException(loginResponse.getLoginResponse());
+	        throw authEx;
 	    }
 	} catch (SOAPFaultException e) {
 	    logger.error("Error en conexion a servicio de login");
 	    throw new SoapFailedAuthenticationException("Error en conexion a servicio de login", e);
 	}
+    }
+    
+    private Collection<GrantedAuthority> mapRoles(LoginResponse loginResponse) {
+	List<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();
+
+	for (String userRole : loginResponse.getUserRoles()) {
+	    roles.add(new AdmissionAuthority(userRole));
+	}
+
+	return roles;
+    }
+    
+    public AuthenticationException mapLoginException(LoginResponse loginResponse) {
+	AuthenticationException authEx = null;
+	BigDecimal responseCode = loginResponse.getResponseCode();
+	switch (responseCode.intValue()) {
+	case 1:
+	    authEx = new UsernameNotFoundException("Usuario no encontrado");
+	    break;
+	case 2:
+	    authEx = new BadCredentialsException("Contraseña no corresponde al usuario ingresado");
+	    break;
+	default:
+	    authEx = new InsufficientAuthenticationException("Fallo no contemplado");
+	    break;
+	}
+	
+	throw authEx;
     }
 }

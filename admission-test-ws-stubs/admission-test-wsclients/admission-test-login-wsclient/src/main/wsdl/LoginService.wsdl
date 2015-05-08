@@ -32,6 +32,7 @@
     <xs:sequence>
       <xs:element name="responseCode" type="xs:decimal"/>
       <xs:element minOccurs="0" name="responseMessage" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="userRoles" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 

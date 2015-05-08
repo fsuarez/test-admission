@@ -10,6 +10,7 @@
         http://www.springframework.org/schema/util    http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<context:annotation-config />
+	<context:component-scan base-package="cl.experti.admission.ws.services" />
 
 	<bean id="admissionWebServicesPropertyPlaceHolder"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -28,4 +29,6 @@
 	<util:set id="loginServiceRequiredFields" set-class="java.util.HashSet">
 		<value>loginRequest</value>
 	</util:set>
+	
+	<util:properties id="userNames" location="classpath:users.properties" />
 </beans>

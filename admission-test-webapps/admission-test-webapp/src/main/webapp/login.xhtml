@@ -10,7 +10,7 @@
         </h:head>
         <h:body>
         	<f:metadata>
-                <f:event type="preRenderView" listener="#{loginBean.checkLoginErrors}" />
+                <f:event type="preRenderView" listener="#{loginBean.checkLoginErrors()}" />
             </f:metadata>
             <div align="center"> 
                 <h:form id="form_login" prependId="false">
@@ -29,7 +29,7 @@
                                 </p:inputText>
 
                                 <h:outputText value="Contraseña:" />
-                                <p:password id="jpassword" value="${loginBean.password}" required="true" label="Contraseña" requiredMessage="Contraseña requerida"/>
+                                <p:password id="j_password" value="${loginBean.password}" required="true" label="Contraseña" requiredMessage="Contraseña requerida"/>
                             </h:panelGrid> 
                         </div>
                         <div align="center"> 
