@@ -34,7 +34,7 @@ public class CheckUserLoginServiceImpl implements CheckUserLoginService {
 	logger.debug("Exists user? {}", existsUser);
 	
 	if (existsUser) {
-	    boolean passwordMatches = StringUtils.equals(request.getPassword(), (String) users.get(request.getPassword()));
+	    boolean passwordMatches = StringUtils.equals(request.getPassword(), (String) users.get(request.getUserName()));
 	    logger.debug("Password matches? {}", passwordMatches);
 	    
 	    if (passwordMatches) {
