@@ -2,6 +2,8 @@ package cl.experti.admission.webapp.security;
 
 import java.io.IOException;
 
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,9 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
-
-import cl.experti.admission.webapp.beans.utils.ParametrosWeb;
 
 public class CustomAuthenticationFailureHandler implements AuthenticationFailureHandler {
     private static Logger logger;
@@ -23,7 +24,8 @@ public class CustomAuthenticationFailureHandler implements AuthenticationFailure
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
 	logger.debug("Catching following auth exception: {}", exception);
-	request.getSession(true).setAttribute(ParametrosWeb.ERROR_AUTENTIFICACION_KEY, Boolean.TRUE);
+	ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+	ec.getSessionMap().put(WebAttributes.AUTHENTICATION_EXCEPTION, exception);
 	response.sendRedirect(request.getContextPath() + "/login.jsf");
     }
 }

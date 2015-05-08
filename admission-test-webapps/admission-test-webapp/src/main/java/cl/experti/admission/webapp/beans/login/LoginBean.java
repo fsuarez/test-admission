@@ -29,10 +29,10 @@ public class LoginBean extends BaseBean {
     public void checkLoginErrors() {
 	FacesContext facesContext = getFacesContext();
         if (!facesContext.isPostback()) {
-            Exception sessionParameter = getSessionParameter(WebAttributes.AUTHENTICATION_EXCEPTION);
-            if (sessionParameter instanceof AuthenticationException) {
+            Exception authException = getSessionParameter(WebAttributes.AUTHENTICATION_EXCEPTION);
+            if (authException instanceof AuthenticationException) {
                 this.getExternalContext().getSessionMap().put(WebAttributes.AUTHENTICATION_EXCEPTION, null);
-                this.addErrorMessage(null, sessionParameter.getMessage());
+                addErrorMessage(null, authException.getMessage());
             }
         }
     }
