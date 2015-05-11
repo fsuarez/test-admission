@@ -8,6 +8,11 @@
 	</parent>
 	<artifactId>admission-test-login-wsserver</artifactId>
 	
+	<properties>
+		<ws.login.wsdl.location>${project.basedir}/../../wsdl/login/LoginService.wsdl</ws.login.wsdl.location>
+		<ws.login.class.name>cl.experti.admission.ws.login.LoginService</ws.login.class.name>
+	</properties>
+	
 	<profiles>
 		<profile>
 			<id>login-wsserver-wsdlgen</id>
@@ -35,10 +40,10 @@
 								<id>process-classes</id>
 								<phase>process-classes</phase>
 								<configuration>
-									<className>cl.experti.admission.ws.login.LoginService</className>
+									<className>${ws.login.class.name}</className>
 									<genWsdl>true</genWsdl>
 									<verbose>true</verbose>
-									<outputFile>${basedir}/src/main/wsdl/LoginService.wsdl</outputFile>
+									<outputFile>${ws.login.wsdl.location}</outputFile>
 								</configuration>
 								<goals>
 									<goal>java2ws</goal>

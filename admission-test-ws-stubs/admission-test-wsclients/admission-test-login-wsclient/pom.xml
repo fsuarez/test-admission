@@ -7,6 +7,10 @@
 		<version>0.0.1</version>
 	</parent>
 	<artifactId>admission-test-login-wsclient</artifactId>
+	
+	<properties>
+		<ws.login.wsdl.location>${project.basedir}/../../wsdl/login/LoginService.wsdl</ws.login.wsdl.location>
+	</properties>
 
 	<profiles>
 		<profile>
@@ -25,7 +29,7 @@
 									<sourceRoot>${basedir}/src/main/java</sourceRoot>
 									<wsdlOptions>
 										<wsdlOption>
-											<wsdl>${basedir}/src/main/wsdl/LoginService.wsdl</wsdl>
+											<wsdl>${ws.login.wsdl.location}</wsdl>
 											<extraargs>
 												<extraarg>-client</extraarg>
 											</extraargs>
