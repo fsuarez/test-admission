@@ -13,7 +13,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.stereotype.Component;
 
+@Component("customAuthFailureHandler")
 public class CustomAuthenticationFailureHandler implements AuthenticationFailureHandler {
     private static Logger logger;
     

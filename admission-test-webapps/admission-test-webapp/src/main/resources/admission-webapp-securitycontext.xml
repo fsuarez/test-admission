@@ -36,8 +36,6 @@
         
         <security:logout logout-url="/j_spring_security_logout" logout-success-url="/login.jsf" invalidate-session="true" />
     </security:http>
-    
-    <bean id="customAuthFailureHandler" class="cl.experti.admission.webapp.security.CustomAuthenticationFailureHandler"/>
    
     <!--    ANOTACIONES SEGURIDAD A NIVEL DE METODOS -->
     <security:global-method-security secured-annotations="enabled"/>
