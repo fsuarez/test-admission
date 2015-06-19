@@ -10,4 +10,12 @@
         </el-resolver>
     </application>
     
+    <navigation-rule>
+        <from-view-id>/pages/datos.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>terminar</from-outcome>
+            <to-view-id>/pages/inicio.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
 </faces-config>

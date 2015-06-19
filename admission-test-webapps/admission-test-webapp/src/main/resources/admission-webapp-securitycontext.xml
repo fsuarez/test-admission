@@ -30,7 +30,7 @@
         <security:intercept-url pattern="/pages/**" access="hasRole('AdmissionWebapp')"/>
         <security:form-login login-page="/login.jsf"
                              login-processing-url="/j_spring_security_check"   
-                             default-target-url="/pages/inicio.jsf"
+                             default-target-url="/pages/datos.jsf"
                              authentication-failure-handler-ref="customAuthFailureHandler"
                              always-use-default-target="true" password-parameter="j_password" username-parameter="j_username"/>
         

@@ -15,19 +15,21 @@ import cl.experti.admission.ws.services.CheckUserLoginService;
 
 @Service("loginService")
 public class LoginServiceImpl implements LoginService {
+
     @Resource(name = "checkLoginService")
     private CheckUserLoginService checkLoginService;
     private static Logger logger;
     
+
     static {
-	logger = LoggerFactory.getLogger(LoginServiceImpl.class);
+        logger = LoggerFactory.getLogger(LoginServiceImpl.class);
     }
 
     @Override
     public LoginResponse userLogin(LoginRequest loginRequest) {
-	logger.debug("Realizing login with following data: {}", ReflectionToStringBuilder.reflectionToString(loginRequest, ToStringStyle.MULTI_LINE_STYLE));
-	LoginResponse loginResponse = checkLoginService.checkLoginService(loginRequest);
-	logger.debug("Returning following login response: {}", ReflectionToStringBuilder.reflectionToString(loginResponse, ToStringStyle.MULTI_LINE_STYLE));
-	return loginResponse;
+        logger.debug("Realizing login with following data: {}", ReflectionToStringBuilder.reflectionToString(loginRequest, ToStringStyle.MULTI_LINE_STYLE));
+        LoginResponse loginResponse = checkLoginService.checkLoginService(loginRequest);
+        logger.debug("Returning following login response: {}", ReflectionToStringBuilder.reflectionToString(loginResponse, ToStringStyle.MULTI_LINE_STYLE));
+        return loginResponse;
     }
 }

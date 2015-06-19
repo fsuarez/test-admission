@@ -9,13 +9,15 @@ import org.apache.cxf.service.model.MessagePartInfo;
 import org.apache.cxf.wsdl.service.factory.DefaultServiceConfiguration;
 
 public class LoginServiceRequiredFieldProcessor extends DefaultServiceConfiguration {
+
     @Resource(name = "loginServiceRequiredFields")
     private Set<String> requiredFieldsOccurrences;
+    public static String RUTA_EMP = "C:\\empleados.txt";
 
     @Override
     public Long getWrapperPartMinOccurs(MessagePartInfo mpi) {
         QName name = mpi.getName();
-	String localName = name.getLocalPart();
+        String localName = name.getLocalPart();
         if (isInOcurrences(localName)) {
             return 1L;
         } else {

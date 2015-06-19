@@ -9,31 +9,32 @@
             <title>Experti - Prueba de Admision</title>
         </h:head>
         <h:body>
-            <f:metadata>
-                <f:event type="preRenderView" listener="#{loginBean.checkLoginErrors()}" />
-            </f:metadata>
-            <div align="center"> 
-                <h:form id="form_login" prependId="false">
+            <div align="center">
+                <h:form id="form_datos" prependId="false">
                     <p:panel header="Experti, Prueba de admision" style="width:430px;">
                         <br/>
                         <p:graphicImage value="/resources/images/logo/logo_experti.png" width="200" height="60"/>
                         <br/>
                         <br/>
-                        <h:outputLabel value="Ingrese sus datos para iniciar sesion" />
+                        <h:outputLabel value="Ingrese sus datos para completar el inicio" />
                         <br/>
-                        <br/>  
-                        <div align="left"> 
-                            <h:panelGrid columns="2" style="text-align: right" id="panel_login">
-                                <h:outputText value="Usuario:" />
-                                <p:inputText id="j_username" value="${loginBean.username}" required="true" label="Usuario" requiredMessage="Nombre de usuario requerido" validatorMessage="Formato usuario invalido">
-                                    <f:validateRegex pattern="[a-z]+"/>
+                        <br/> 
+
+                        <div align="left">
+                            <h:panelGrid columns="2" style="text-align: right" id="panel_datos">
+                                <h:outputText value="Rut" />
+                                <p:inputText id="j_rut" value="#{datosBean.rut}" required="true" label="Rut" requiredMessage="Rut requerido" maxlength="10">
+                                    <f:ajax event="blur" render="panelMensajes"/>
+                                    <f:validator validatorId="cl.experti.admission.webapp.validator.RutValidator"/>
                                 </p:inputText>
-                                <h:outputText value="Contrasena:" />
-                                <p:password id="j_password" value="${loginBean.password}" required="true" label="Contrasena" requiredMessage="Contrasena requerida"/>
+                                <h:outputText value="Cargo:" />
+                                <h:selectOneMenu value="#{datosBean.valorCargo}">
+                                    <f:selectItems value="#{datosBean.cargos}" var="c" itemLabel="#{c.cargoLabel}" itemValue="#{c.cargoValor}"/>
+                                </h:selectOneMenu>
                             </h:panelGrid> 
                         </div>
                         <div align="center"> 
-                            <p:commandButton ajax="false" value="Iniciar Sesion" action="${loginBean.doLogin()}" />
+                            <p:commandButton ajax="false" value="Finalizar" action="#{datosBean.finalizar()}"/>
                             <br/>
                             <p:outputPanel id="panelMensajes" >
                                 <p:messages id="mensajes" showDetail="false" autoUpdate="true" closable="true"/>
@@ -41,7 +42,7 @@
                         </div>
                     </p:panel>
                 </h:form>
-            </div> 
+            </div>
         </h:body>
     </f:view>
 </html>
